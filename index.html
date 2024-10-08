@@ -1,1 +1,54 @@
+<!Doctype html>
+<html>
+    <head>
+        <title></title>
+<style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        video{
+            height: 50vh;
+    object-fit: initial;
+    width: 50%;
 
+        }
+        .fbox__video{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+        }
+        section{height:100vh}
+        </style>
+    </head>
+    <body>
+        <section></section>
+        <div class="fbox__video">
+        <video id="video" autoplay="true" loop src="https://videos.pexels.com/video-files/28441230/12383563_2560_1440_30fps.mp4"></video>
+    </div>
+<section></section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let vd=document.getElementById('video');
+
+        gsap.to(vd,{
+            height:'100vh',
+    
+            width:'100%',
+            duration:9.5,
+ease: "power4.out",
+            scrollTrigger:{
+                scroller:'body',
+                trigger:vd,
+                scrub:true,
+                start:'top 40%',
+                end:'top -55%',
+                markers:true
+            }
+        })
+    </script>
+    </body>
+</html>
