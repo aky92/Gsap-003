@@ -31,7 +31,7 @@
             font-size:15vw;
             text-align: center;
             perspective-origin: top;           
-            perspective: 250px;
+            perspective: 350px;
             position:absolute;
             top: 0;
             left: 33%;
@@ -50,17 +50,19 @@
             top:24%;
             left:25%;
             z-index:997;
-
+            
         }
         </style>
     </head>
-    <body>
+    <body  style="background-color: #ffeb3b;">
         <section></section>
         <section class="main"> 
             <div id="text">
                 <p>Hello</p>
             </div>
+            <div style="transition: all ease 0.36s;">
             <video id="video" autoplay="true" loop src="https://videos.pexels.com/video-files/28441230/12383563_2560_1440_30fps.mp4"></video>
+        </div>
         </section>
 <!--         
         <div class="fbox__video">
@@ -89,26 +91,26 @@
                 scroller:'body',
                
                 scrub:true,
-                start:'top 38%',
-                end:'top 25%',
-                markers:true
+                start:'top 30%',
+                end:'top 20%',
+             //   markers:true
             }
         },'st')
 
         gsap.to('#text p',{
             
             rotateX:'85deg',
-            duration:'2.5',
+         
             ease: "circ.out",
             opacity:'0.1',
-            delay:'0.6',
+      
             scrollTrigger:{
                 trigger:'#text',
                 scroller:'body',
                 pin:true,
                 scrub:true,
-                start:'top 35%',
-                end:'top 25%',
+                start:'top 30%',
+                end:'top 20%',
                 // markers:true
             }
         },'st')
