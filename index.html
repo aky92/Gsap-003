@@ -8,6 +8,9 @@
             padding:0;
             box-sizing:border-box;
         }
+        html{
+            overflow-x: hidden;
+        }
         video{
             height: 50vh;
     object-fit: initial;
@@ -27,63 +30,88 @@
             /* transform-origin: top; */
             font-size:15vw;
             text-align: center;
-perspective-origin: top;           
+            perspective-origin: top;           
             perspective: 250px;
-           
+            position:absolute;
+            top: 0;
+            left: 33%;
+            z-index: 999;
            }
-         #text  p{
-            /* transform: rotateX(50deg); */
-          }    
+           
         section{height:100vh}
+
+        .main{
+            position: relative;
+
+        }
+
+        #video{
+            position:absolute;
+            top:24%;
+            left:25%;
+            z-index:997;
+
+        }
         </style>
     </head>
     <body>
         <section></section>
-        <div id="text">
-        <p>Hello</p>
-    </div>
+        <section class="main"> 
+            <div id="text">
+                <p>Hello</p>
+            </div>
+            <video id="video" autoplay="true" loop src="https://videos.pexels.com/video-files/28441230/12383563_2560_1440_30fps.mp4"></video>
+        </section>
+<!--         
         <div class="fbox__video">
           
           
-                <video id="video" autoplay="true" loop src="https://videos.pexels.com/video-files/28441230/12383563_2560_1440_30fps.mp4"></video>
              
-        </div>
-<section></section>
+             
+        </div> -->
+<section>
+
+</section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        let vd=document.getElementById('video');
 
-        gsap.to(vd,{
-            height:'100vh',
-    
+
+     
+
+
+        gsap.to('#video',{
             width:'100%',
-            duration:9.5,
-ease: "power4.out",
+            height:'85%',
+            left:'0',
             scrollTrigger:{
+                trigger:'#video',
                 scroller:'body',
-                trigger:vd,
+               
                 scrub:true,
-                start:'top 40%',
-                end:'top -55%',
-                //markers:true
+                start:'top 38%',
+                end:'top 25%',
+                markers:true
             }
-        })
-    
-        let txt=document.getElementById('text');
+        },'st')
+
         gsap.to('#text p',{
-            rotateX:'80deg',
-            // opacity:'0.6',
+            
+            rotateX:'85deg',
+            duration:'2.5',
+            ease: "circ.out",
+            opacity:'0.1',
+            delay:'0.6',
             scrollTrigger:{
+                trigger:'#text',
                 scroller:'body',
-                trigger:txt,
+                pin:true,
                 scrub:true,
-                start:'top 55%',
-                end:'top 35%',
-                markers:true,
-                pin :true
+                start:'top 35%',
+                end:'top 25%',
+                // markers:true
             }
-        })
+        },'st')
     </script>
     </body>
 </html>
